@@ -2,7 +2,7 @@
 
 A customer-facing resource for driving Cortex Code (CoCo) adoption: a business value deck, a hands-on lab, and a step-by-step runbook that any SE can pick up and run.
 
-Modeled after [Tony's Cortex Agents + dbt template](https://innovation-igloo.github.io/beyond-a-reasonable-dbt/).
+Part of Snowflake's SE adoption resource library.
 
 ---
 

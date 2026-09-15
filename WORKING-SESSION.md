@@ -171,5 +171,5 @@ Next step (owned by AE): _______________
 ## Notes
 
 - Kyle Burns' data governance skill (data governance patterns for regulated industries) can replace Phase 3 for healthcare/financial services accounts — check for the latest version before the session.
-- The `≥95% accuracy` bar from Tony's dbt template applies here too. Run a quick 5-question eval before handing off to the AE.
-- If you get stuck, the reference pages are at the lab site: [exhibit-a](../presentations/exhibit-a/) (capabilities) and [exhibit-b](../presentations/exhibit-b/) (vertical patterns).
+- Aim for ≥95% answer accuracy before handing off to the AE. Run a quick 5-question eval to confirm.
+- If you get stuck, the reference pages are in the lab site: exhibit-a (capabilities) and exhibit-b (vertical patterns).
