@@ -102,7 +102,7 @@
         <li>"What do they wish they could ask?" - natural language queries against spatial attributes</li>
         <li>"What's the one spatial question every new customer asks?" - risk density by geography</li>
       </ul>
-      <p><strong>Outcome:</strong> Every customer of the ISV now uses Snowflake as an execution environment for their queries. The ISV's deployment of CoCo multiplied consumption across their entire customer base without each customer building anything independently.</p>
+      <p><strong>Outcome:</strong> Every customer of the ISV now gets natural-language access to spatial data as part of the ISV's own product. The pattern scales to the ISV's entire customer base without each customer building anything independently.</p>
       <p><strong>Semantic view structure:</strong> 2 tables (coverage_zones, risk_factors), 8 spatial dimensions (zip_code, county, state, flood_zone, risk_tier, property_type, coverage_type, region), 3 metrics (avg_risk_score, total_coverage, exposed_value). 5 verified queries for the most common spatial patterns.</p>
       <p><strong>HoL mapping:</strong> Phase 3 (agent) is where the differentiation lives for this pattern. The tool description needs to specify what spatial dimensions are available and when to use them vs. when to say it cannot answer.</p>
     </section>
@@ -141,7 +141,7 @@
         <li>"Where is the data for those tools?" - all in Snowflake</li>
         <li>"What if your engineers could ship those tools without a sprint?" - that's the session design</li>
       </ul>
-      <p><strong>Outcome:</strong> Self-sufficient adoption. The customer's engineering team builds new CoCo applications independently. Consumption grows without SE engagement. The pattern was replicated at a second account the following month by sharing the session runbook.</p>
+      <p><strong>Outcome:</strong> Self-sufficient adoption. The customer's engineering team builds new CoCo applications independently, without SE engagement. The pattern was replicated at a second account the following month by sharing the session runbook.</p>
       <p><strong>Session structure (different from the standard HoL):</strong> This pattern works as a group hackathon. One SE, multiple engineers, 4-hour session. SE demonstrates one build end-to-end (45 min), engineers split into pairs and build independently (2.5 hours), closing review and deployment (45 min).</p>
       <p><strong>HoL mapping:</strong> Skip the AE-focused setup. Run Phase 1 (discovery) as a group brainstorm. Each pair runs Phases 2-4 in parallel. Phase 5 (handoff) is replaced by a group retrospective and a shared repo of what was built.</p>
     </section>
