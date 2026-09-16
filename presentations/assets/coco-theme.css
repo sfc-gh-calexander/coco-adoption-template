@@ -1,0 +1,94 @@
+/* ==========================================================================
+   coco-theme.css - components specific to the CoCo Adoption Template
+   Our accent color plus the bespoke content components that have no
+   generic equivalent in base.css/doc.css/deck.css. Kept out of those files
+   so this template's own flourishes do not leak into other doc sites that
+   share the same generic layer. Load after base.css and doc.css (and
+   deck.css on the executive deck).
+   ========================================================================== */
+
+:root {
+  --accent: #B07A2A;
+  --accent-deep: #8A5E1F;
+  --accent-pale: #FBF4E6;
+}
+
+/* --- gate: a blocking exit condition on a runbook phase ------------------- */
+
+.gate { border-left: 4px solid var(--success); background: #ECFDF5; padding: 0.7rem 1rem; border-radius: var(--radius); margin: 1rem 0; font-size: 0.9rem; color: #065F46; }
+.gate .gate-label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #059669; margin-bottom: 0.3rem; }
+.gate p { margin: 0; }
+
+/* --- pattern card: what was built / what it unlocked ---------------------- */
+
+.pcard-grid { display: flex; flex-direction: column; gap: 1rem; margin-top: 2.5vh; }
+.pcard { background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 14px; padding: 1.5rem 1.75rem; }
+.pcard .ind { font-size: clamp(0.68rem, 1.4vh, 0.85rem); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sf-cyan); margin-bottom: 0.4rem; }
+.pcard .out { font-size: clamp(0.9rem, 2vh, 1.25rem); color: rgba(255, 255, 255, 0.85); line-height: 1.45; }
+.slide:not(.hero) .pcard { background: var(--bg-alt); border: 1px solid var(--border); }
+.slide:not(.hero) .pcard .ind { color: var(--accent-deep); }
+.slide:not(.hero) .pcard .out { color: var(--text); }
+
+/* --- vertical/status badges ------------------------------------------------
+   Distinct from base.css .tag-*, used to mark which vertical or industry a
+   pattern belongs to.
+   ------------------------------------------------------------------------- */
+
+.badge { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; border-radius: 20px; padding: 0.2em 0.75em; margin-bottom: 0.5rem; }
+.badge-blue { background: var(--sf-blue-pale); color: var(--sf-blue-deep); border: 1px solid var(--sf-blue); }
+.badge-green { background: #F1F8F4; color: var(--success); border: 1px solid #A5D6A7; }
+.badge-yellow { background: var(--accent-pale); color: var(--accent-deep); border: 1px solid var(--accent); }
+
+/* --- flow pipeline reuse note ----------------------------------------------
+   .flow / .step / .arrow are already defined generically enough to live in
+   doc.css's spirit, but ship here since they are only used on our lab
+   overview tab. If a second template needs them, promote to doc.css.
+   ------------------------------------------------------------------------- */
+
+.flow { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; margin: 1.25rem 0; }
+.flow .step { background: var(--sf-blue-pale); border: 1px solid var(--sf-blue); color: var(--sf-blue-deep); border-radius: 20px; padding: 0.3rem 0.85rem; font-size: 0.82rem; font-weight: 700; }
+.flow .arrow { color: var(--border-strong); font-weight: 700; }
+
+/* --- generic slide bullet list ---------------------------------------------
+   deck.css styles specific list components (.agenda, .ruling-points) but not
+   a plain bulleted list at slide scale. Used where a slide's content is a
+   short bulleted list rather than one of the named components.
+   ------------------------------------------------------------------------- */
+
+.slide ul.plain { list-style: none; padding: 0; margin: 2.5vh 0 0; display: flex; flex-direction: column; gap: 1.2vh; max-width: 46ch; }
+.slide ul.plain li { font-size: clamp(1rem, 2.4vh, 1.4rem); color: var(--text-muted); line-height: 1.4; padding-left: 1.4em; position: relative; }
+.slide ul.plain li::before { content: "\2022"; position: absolute; left: 0.3em; color: var(--sf-blue); font-weight: 700; }
+.slide.hero ul.plain li { color: rgba(255, 255, 255, 0.85); }
+.slide.hero ul.plain li::before { color: var(--sf-cyan); }
+
+/* --- standalone CTA buttons -------------------------------------------------
+   The reference always routes CTAs through .card links; we have a couple of
+   standalone buttons outside of card context (e.g. "Open the Hands-On Lab").
+   ------------------------------------------------------------------------- */
+
+.btn { display: inline-block; padding: 0.6rem 1.3rem; border-radius: var(--radius); font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: opacity 0.15s ease; }
+.btn:hover { opacity: 0.88; }
+.btn-primary { background: var(--sf-blue); color: #fff; }
+.btn-outline { background: transparent; color: var(--sf-blue-deep); border: 1.5px solid var(--border-strong); }
+
+/* --- eyebrow (doc-page context) --------------------------------------------
+   deck.css defines its own viewport-scaled .eyebrow for slides; doc pages
+   (which do not load deck.css) need the static equivalent.
+   ------------------------------------------------------------------------- */
+
+.eyebrow { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.5rem; }
+
+/* --- checklist -------------------------------------------------------------- */
+
+.checklist { list-style: none; padding: 0; margin: 0.75rem 0; }
+.checklist li { display: flex; gap: 0.6rem; align-items: flex-start; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+.checklist li:last-child { border: none; }
+.check-box { width: 18px; height: 18px; border: 1.5px solid var(--border-strong); border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+.checklist .check-text { font-size: 0.9rem; color: var(--text-muted); }
+
+/* --- handoff card ------------------------------------------------------------ */
+
+.handoff-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; }
+.handoff-field { margin-bottom: 1.1rem; }
+.handoff-field label { display: block; font-size: 0.78rem; font-weight: 700; color: var(--text); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+.handoff-field .field-line { border-bottom: 1px solid var(--border-strong); padding-bottom: 0.4rem; color: #9CA3AF; font-size: 0.88rem; font-style: italic; }
