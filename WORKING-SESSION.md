@@ -1,6 +1,6 @@
-# Cortex Code Adoption — Working Session
+# CoCo Adoption - Working Session
 
-A phase-driven runbook for building an account-specific Cortex Code agent with a customer. Follow phases in order. Each phase has an entry condition and an exit artifact. Do not advance past a failing gate.
+A phase-driven runbook for building an account-specific CoCo agent with a customer. Follow phases in order. Each phase has an entry condition and an exit artifact. Do not advance past a failing gate.
 
 Paired with the full reference at: [Hands-on Lab](https://your-org.github.io/cortex-coco-adoption-template/lab/)
 
@@ -22,7 +22,7 @@ Write the one-sentence build brief before Phase 1:
 
 ---
 
-## Phase 1 — Discovery
+## Phase 1 - Discovery
 
 **Entry condition:** you have a customer and a meeting.
 
@@ -40,11 +40,11 @@ Map question 3 to a table. That table is your build target.
 
 ---
 
-## Phase 2 — Setup (30 minutes)
+## Phase 2 - Setup (30 minutes)
 
 **Entry condition:** build brief is filled in.
 
-Open Cortex Code Desktop or a Snowflake Workspace. Run:
+Open CoCo Desktop or a Snowflake Workspace. Run:
 
 ```sql
 -- Verify CoCo and Cortex features are enabled
@@ -58,7 +58,7 @@ SELECT COUNT(*), MAX(<date_column>) FROM <customer_db>.<schema>.<table>;
 ```
 
 Confirm:
-- [ ] CoCo is enabled (Cortex Code Desktop connects without error)
+- [ ] CoCo is enabled (CoCo Desktop connects without error)
 - [ ] Target tables are accessible and have recent data
 - [ ] You have CREATE SEMANTIC VIEW and CREATE AGENT privileges
 
@@ -68,7 +68,7 @@ Copy `starter/semantic_view_example.sql` into the session.
 
 ---
 
-## Phase 3 — Semantic View
+## Phase 3 - Semantic View
 
 **Entry condition:** target tables confirmed, starter file open.
 
@@ -96,7 +96,7 @@ Confirm:
 
 ---
 
-## Phase 4 — Agent
+## Phase 4 - Agent
 
 **Entry condition:** semantic view is deployed and validated.
 
@@ -127,14 +127,14 @@ Test with three questions:
 
 ---
 
-## Phase 5 — Demo and Handoff
+## Phase 5 - Demo and Handoff
 
 **Entry condition:** agent is deployed and validated.
 
 **Demo script:**
 
 1. Open CoCo, switch to the agent
-2. Ask the build brief question — let the customer see their own data answer it
+2. Ask the build brief question - let the customer see their own data answer it
 3. Ask a follow-up they didn't expect to work
 4. Invite them to ask a question
 
@@ -143,12 +143,12 @@ Test with three questions:
 | Objection | Response |
 |---|---|
 | "We already have Copilot / ChatGPT" | Those answer from the internet. This answers from your Snowflake data, with your governance controls, and it doesn't leave your environment. |
-| "My data team won't trust it" | Show them the generated SQL. Every answer is explainable and auditable — it's not a black box. |
+| "My data team won't trust it" | Show them the generated SQL. Every answer is explainable and auditable - it's not a black box. |
 | "This is just a demo, not production" | The semantic view and agent you just built are already production objects. This is not a sandbox. |
 | "What does this cost to run?" | Cortex AI usage is billed per token. For a typical analyst question at this data volume, it is cents per query. |
 | "How do we maintain this?" | The semantic view is SQL you version-control. The agent spec is a SQL DDL statement. Update it the same way you update any other database object. |
 
-**AE handoff card — fill this in before ending the session:**
+**AE handoff card - fill this in before ending the session:**
 
 ```
 Account: _______________
@@ -170,6 +170,6 @@ Next step (owned by AE): _______________
 
 ## Notes
 
-- Kyle Burns' data governance skill (data governance patterns for regulated industries) can replace Phase 3 for healthcare/financial services accounts — check for the latest version before the session.
+- A dedicated data governance skill (data governance patterns for regulated industries) can replace Phase 3 for healthcare/financial services accounts - check internally for the latest version before the session.
 - Aim for ≥95% answer accuracy before handing off to the AE. Run a quick 5-question eval to confirm.
 - If you get stuck, the reference pages are in the lab site: exhibit-a (capabilities) and exhibit-b (vertical patterns).

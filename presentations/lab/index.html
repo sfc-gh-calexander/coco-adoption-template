@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="snowflake-source" content="cortex-agent-authored" />
-  <title>Hands-On Lab - Cortex Code Adoption Template</title>
+  <title>Hands-On Lab - CoCo Adoption Template</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --blue: #29B5E8; --blue-dark: #11134D; --blue-mid: #0073A8; --ink: #0D1B2A; --ink-mid: #374151; --ink-light: #6B7280; --bg: #FFFFFF; --surface: #F8FAFC; --border: #E2E8F0; }
@@ -88,7 +88,7 @@
       <span class="topbar-wordmark">Snowflake</span>
     </a>
     <span class="topbar-sep">|</span>
-    <span class="topbar-sub">Cortex Code Adoption Template</span>
+    <span class="topbar-sub">CoCo Adoption Template</span>
   </nav>
   <div class="breadcrumb">
     <a href="../index.html">All pages</a> &rsaquo;
@@ -144,7 +144,7 @@
       <h2>Prerequisites checklist</h2>
       <ul class="checklist">
         <li><span class="check-box"></span><span class="check-text">Snowflake account with Cortex features enabled</span></li>
-        <li><span class="check-box"></span><span class="check-text">Cortex Code (CoCo) enabled on the account &mdash; verify in Snowsight under Projects &rsaquo; Cortex Code</span></li>
+        <li><span class="check-box"></span><span class="check-text">CoCo enabled on the account &mdash; verify in Snowsight under Projects &rsaquo; CoCo</span></li>
         <li><span class="check-box"></span><span class="check-text">Role with <code>CREATE SEMANTIC VIEW</code> and <code>CREATE AGENT</code> privileges (SYSADMIN or equivalent)</span></li>
         <li><span class="check-box"></span><span class="check-text">1&ndash;2 source tables identified that answer the business question</span></li>
         <li><span class="check-box"></span><span class="check-text">One-sentence build brief written (above)</span></li>
@@ -276,7 +276,7 @@ AI_VERIFIED_QUERIES (
       <hr />
 
       <h2>Create the agent</h2>
-      <p>In Cortex Code or Snowsight, run:</p>
+      <p>In CoCo or Snowsight, run:</p>
       <pre><code>CREATE OR REPLACE AGENT &lt;account_name&gt;_analyst
   TOOLS = (
     TOOL_TYPE   =&gt; CORTEX_ANALYST_TEXT_TO_SQL,
@@ -329,7 +329,7 @@ AI_VERIFIED_QUERIES (
 
       <h2>Demo script</h2>
       <ol>
-        <li>Open Cortex Code and navigate to the agent</li>
+        <li>Open CoCo and navigate to the agent</li>
         <li>Ask the build brief question &mdash; let the customer see their own data answer it in 10 seconds</li>
         <li>Ask the follow-up question you prepared &mdash; show that the agent handles context</li>
         <li>Invite the customer to ask a question they care about &mdash; do not script this</li>
@@ -432,7 +432,7 @@ AI_VERIFIED_QUERIES (
       <ul>
         <li>Leave the semantic view and agent deployed in the customer's Snowflake account &mdash; this is their artifact</li>
         <li>Grant access to the relevant roles so the customer's team can use it</li>
-        <li>Send the customer the agent name and instructions for accessing it in Cortex Code or Snowflake Intelligence</li>
+        <li>Send the customer the agent name and instructions for accessing it in CoCo or Snowflake Intelligence</li>
         <li>Log the use case in SFDC before the day ends</li>
       </ul>
 
@@ -454,7 +454,7 @@ AI_VERIFIED_QUERIES (
 
   <footer class="footer">
     <a href="../index.html">&#8592; Hub</a>
-    &nbsp;&middot;&nbsp; Snowflake | Cortex Code Adoption Template
+    &nbsp;&middot;&nbsp; Snowflake | CoCo Adoption Template
     &nbsp;&middot;&nbsp; <a href="../exhibit-a/index.html">Capabilities</a>
     &nbsp;&middot;&nbsp; <a href="../exhibit-b/index.html">Vertical Patterns</a>
   </footer>

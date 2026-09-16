@@ -1,4 +1,4 @@
--- Cortex Code Adoption Template
+-- CoCo Adoption Template
 -- Semantic View Starter File
 -- 
 -- Instructions:
