@@ -20,6 +20,8 @@ Write the one-sentence build brief before Phase 1:
 
 > Build an agent that answers **[business question]** using **[table 1]** and **[table 2]**.
 
+**What CoCo can build:** the build brief above assumes a conversational agent (semantic view + Cortex Analyst agent), which is the pattern this runbook walks through step by step. CoCo is a general coding agent, so the same three discovery questions can just as easily point to a Streamlit app or dashboard, a dbt model or Dynamic Table pipeline, or a notebook analysis instead. Phases 3-4 below cover the agent pattern as one worked example; swap in the artifact that actually answers the customer's question.
+
 ---
 
 ## Phase 1 - Discovery
@@ -68,9 +70,11 @@ Copy `starter/semantic_view_example.sql` into the session.
 
 ---
 
-## Phase 3 - Semantic View
+## Phase 3 - Build: Semantic View + Agent pattern
 
 **Entry condition:** target tables confirmed, starter file open.
+
+This phase covers the agent pattern: a semantic view feeding a Cortex Analyst text-to-SQL agent. If the build brief points to an app, dashboard, or pipeline instead, the same entry/exit/gate structure applies, just with a different artifact.
 
 Edit `semantic_view_example.sql`:
 
@@ -96,7 +100,7 @@ Confirm:
 
 ---
 
-## Phase 4 - Agent
+## Phase 4 - Build: Agent
 
 **Entry condition:** semantic view is deployed and validated.
 

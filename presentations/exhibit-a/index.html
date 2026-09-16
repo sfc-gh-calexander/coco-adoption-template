@@ -45,6 +45,7 @@
     .footer { border-top: 1px solid #E2E8F0; padding: 20px 24px; text-align: center; font-size: 0.78rem; color: #6B7280; background: #F8FAFC; }
     .footer a { color: #6B7280; text-decoration: none; }
     .footer a:hover { text-decoration: underline; }
+    .note-box { background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 8px; padding: 14px 16px; font-size: 0.88rem; color: #1E40AF; }
     
   </style>
 </head>
@@ -87,12 +88,15 @@
 
     <h2>What CoCo does not do</h2>
     <ul>
-      <li>It does not answer questions from the internet or general knowledge &mdash; only from your Snowflake data</li>
-      <li>It does not ingest external data on its own &mdash; data must already be in Snowflake or loaded via standard pipelines</li>
-      <li>It does not replace a semantic view &mdash; the semantic view provides the data model; CoCo builds the agent on top of it</li>
-      <li>It does not autonomously modify production objects without confirmation &mdash; it proposes changes, you execute them</li>
+      <li>It does not answer questions from the internet or general knowledge - only from your Snowflake data</li>
+      <li>It does not ingest external data on its own - data must already be in Snowflake or loaded via standard pipelines</li>
+      <li>It does not autonomously modify production objects without confirmation - it proposes changes, you execute them</li>
       <li>It does not persist conversation history across sessions by default</li>
     </ul>
+
+    <div class="note-box" style="margin-top:16px;">
+      <strong>Note:</strong> CoCo can build many kinds of things against your Snowflake data - agents, apps, dashboards, pipelines, notebooks. When the target is a text-to-SQL agent specifically, a semantic view still provides the data model that grounds its accuracy; that is one build pattern, not CoCo's core job.
+    </div>
 
     <hr />
 

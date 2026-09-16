@@ -69,7 +69,7 @@
     
     <p class="section-label">Exhibit B</p>
     <h1>Vertical Patterns</h1>
-    <p>Four production patterns from real-world CoCo deployments. All anonymized. Each includes what was built, the data involved, the outcome achieved, and which HoL phase it maps to. Use these to frame the conversation before the build, not as scripts.</p>
+    <p>Four production patterns from real-world CoCo deployments. All anonymized. Each includes what was built, the data involved, the outcome achieved, and which HoL phase it maps to. The patterns span both agents and applications - CoCo is not limited to one build type. Use these to frame the conversation before the build, not as scripts.</p>
 
     <hr />
 
@@ -77,16 +77,16 @@
       <span class="badge badge-green">Restaurant and Hospitality</span>
       <h2>Executive Reporting Agent and Corporate Chatbot</h2>
       <p><strong>What was built:</strong> An AI agent that lets non-technical executives and operations managers ask questions about their restaurant data in plain English. Answers in 10 seconds, generated SQL visible and auditable.</p>
-      <p><strong>The data:</strong> POS transaction data, labor scheduling, food cost tracking, and marketing spend &mdash; all in Snowflake, all connected through a single semantic view.</p>
+      <p><strong>The data:</strong> POS transaction data, labor scheduling, food cost tracking, and marketing spend - all in Snowflake, all connected through a single semantic view.</p>
       <p><strong>Discovery questions that surfaced this:</strong></p>
       <ul>
-        <li>"What does your CFO spend most of their time pulling manually?" &mdash; weekly sales-by-location report</li>
-        <li>"Where does that data live?" &mdash; Snowflake, several tables joined in a view</li>
-        <li>"What would they ask it if they could just type?" &mdash; "What were our top 5 markets last quarter by margin?"</li>
+        <li>"What does your CFO spend most of their time pulling manually?" - weekly sales-by-location report</li>
+        <li>"Where does that data live?" - Snowflake, several tables joined in a view</li>
+        <li>"What would they ask it if they could just type?" - "What were our top 5 markets last quarter by margin?"</li>
       </ul>
-      <p><strong>Outcome:</strong> The first session produced one deployed agent answering margin and revenue questions. That single session catalyzed 12 additional AI workstreams across the organization &mdash; finance, operations, marketing, and culinary &mdash; built by the customer's own teams without additional SE involvement.</p>
+      <p><strong>Outcome:</strong> The first session produced one deployed agent answering margin and revenue questions. That single session catalyzed 12 additional AI workstreams across the organization - finance, operations, marketing, and culinary - built by the customer's own teams without additional SE involvement.</p>
       <p><strong>Semantic view structure:</strong> 3 tables (transactions, locations, menu), 6 dimensions (location, date, category, region, channel, menu_item), 4 metrics (gross_sales, net_sales, food_cost_pct, labor_pct). 2 verified queries.</p>
-      <p><strong>HoL mapping:</strong> Phase 2 (semantic view) is the most important phase for this vertical. Get the business names right &mdash; "net sales" not "NET_SALES_AMT" &mdash; and add verified queries for the CFO's top 3 questions.</p>
+      <p><strong>HoL mapping:</strong> Phase 2 (semantic view) is the most important phase for this vertical. Get the business names right - "net sales" not "NET_SALES_AMT" - and add verified queries for the CFO's top 3 questions.</p>
     </section>
 
     <hr />
@@ -98,9 +98,9 @@
       <p><strong>The data:</strong> The ISV's proprietary geospatial datasets, already in Snowflake Marketplace. The build connected their semantic view to a CoCo agent, then embedded the agent in the ISV's product via the Cortex Agent API.</p>
       <p><strong>Discovery questions that surfaced this:</strong></p>
       <ul>
-        <li>"How do your customers interact with your data today?" &mdash; they write SQL or use a BI tool</li>
-        <li>"What do they wish they could ask?" &mdash; natural language queries against spatial attributes</li>
-        <li>"What's the one spatial question every new customer asks?" &mdash; risk density by geography</li>
+        <li>"How do your customers interact with your data today?" - they write SQL or use a BI tool</li>
+        <li>"What do they wish they could ask?" - natural language queries against spatial attributes</li>
+        <li>"What's the one spatial question every new customer asks?" - risk density by geography</li>
       </ul>
       <p><strong>Outcome:</strong> Every customer of the ISV now uses Snowflake as an execution environment for their queries. The ISV's deployment of CoCo multiplied consumption across their entire customer base without each customer building anything independently.</p>
       <p><strong>Semantic view structure:</strong> 2 tables (coverage_zones, risk_factors), 8 spatial dimensions (zip_code, county, state, flood_zone, risk_tier, property_type, coverage_type, region), 3 metrics (avg_risk_score, total_coverage, exposed_value). 5 verified queries for the most common spatial patterns.</p>
@@ -116,9 +116,9 @@
       <p><strong>The data:</strong> De-identified clinical event data, patient cohort definitions, and operational metrics. PHI-adjacent columns masked via Snowflake column masking policies before being exposed in the semantic view.</p>
       <p><strong>Discovery questions that surfaced this:</strong></p>
       <ul>
-        <li>"Who in your organization needs data but cannot write SQL?" &mdash; clinical operations team, research coordinators</li>
-        <li>"What stops them from getting it today?" &mdash; they have to request it from the data team, 3-5 day SLA</li>
-        <li>"What would they ask if they could get it instantly?" &mdash; "How many patients in cohort X completed the protocol?"</li>
+        <li>"Who in your organization needs data but cannot write SQL?" - clinical operations team, research coordinators</li>
+        <li>"What stops them from getting it today?" - they have to request it from the data team, 3-5 day SLA</li>
+        <li>"What would they ask if they could get it instantly?" - "How many patients in cohort X completed the protocol?"</li>
       </ul>
       <p><strong>Outcome:</strong> A reusable deployment pattern for regulated healthcare accounts. The governance setup is documented and reproducible. New healthcare accounts deploy the same pattern in one session using this template.</p>
       <p><strong>Semantic view structure:</strong> 3 tables (patients, events, cohorts), dimensions using business names that match clinical vocabulary, masking policies on date-of-birth and geographic identifiers, verified queries for the 5 most common protocol compliance questions.</p>
@@ -134,12 +134,12 @@
       <span class="badge badge-blue">SaaS and Internal Tools</span>
       <h2>Internal Application Factory</h2>
       <p><strong>What was built:</strong> 8 internal production applications in a single-day hackathon by the customer's own engineering team. Applications included a customer churn predictor, an inventory status dashboard, a support ticket classifier, a pricing model tester, and four vertical-specific operational tools.</p>
-      <p><strong>The data:</strong> The customer's existing Snowflake tables &mdash; operational data, CRM data, and support logs already in Snowflake.</p>
+      <p><strong>The data:</strong> The customer's existing Snowflake tables - operational data, CRM data, and support logs already in Snowflake.</p>
       <p><strong>Discovery questions that surfaced this:</strong></p>
       <ul>
-        <li>"What internal tools do your engineers build requests for that never get prioritized?" &mdash; 6-8 tools on the backlog</li>
-        <li>"Where is the data for those tools?" &mdash; all in Snowflake</li>
-        <li>"What if your engineers could ship those tools without a sprint?" &mdash; that's the session design</li>
+        <li>"What internal tools do your engineers build requests for that never get prioritized?" - 6-8 tools on the backlog</li>
+        <li>"Where is the data for those tools?" - all in Snowflake</li>
+        <li>"What if your engineers could ship those tools without a sprint?" - that's the session design</li>
       </ul>
       <p><strong>Outcome:</strong> Self-sufficient adoption. The customer's engineering team builds new CoCo applications independently. Consumption grows without SE engagement. The pattern was replicated at a second account the following month by sharing the session runbook.</p>
       <p><strong>Session structure (different from the standard HoL):</strong> This pattern works as a group hackathon. One SE, multiple engineers, 4-hour session. SE demonstrates one build end-to-end (45 min), engineers split into pairs and build independently (2.5 hours), closing review and deployment (45 min).</p>
