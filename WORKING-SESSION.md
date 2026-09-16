@@ -2,7 +2,7 @@
 
 A phase-driven runbook for building an account-specific CoCo agent with a customer. Follow phases in order. Each phase has an entry condition and an exit artifact. Do not advance past a failing gate.
 
-Paired with the full reference at: [Hands-on Lab](https://your-org.github.io/cortex-coco-adoption-template/lab/)
+Paired with the full reference at: [Hands-on Lab](https://sfc-gh-calexander.github.io/cortex-coco-adoption-template/lab/index.html)
 
 ---
 
