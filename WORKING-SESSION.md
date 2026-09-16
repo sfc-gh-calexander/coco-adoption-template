@@ -1,8 +1,20 @@
 # CoCo Adoption - Working Session
 
-A phase-driven runbook for building an account-specific CoCo agent with a customer. Follow phases in order. Each phase has an entry condition and an exit artifact. Do not advance past a failing gate.
+A phase-driven runbook for building an account-specific CoCo agent with a customer. It works two ways at once:
+
+- **For you (human):** read top-to-bottom as the session guide - each phase states what you decide and what gets built.
+- **For CoCo:** an executable script. Point CoCo at this file with *"Follow WORKING-SESSION.md"* and it will drive all six phases, pausing at each gate for your input and running the build commands live.
 
 Paired with the full reference at: [Hands-on Lab](https://sfc-gh-calexander.github.io/cortex-coco-adoption-template/lab/index.html)
+
+---
+
+## Operating Rules (the contract CoCo follows)
+
+1. **Infer-vs-specify gate: before each phase.** CoCo MUST ask whether you want it to *infer* the values from your data, or whether you'll *specify* them explicitly. Never assume.
+2. **Materialize gate: at the end of each phase.** CoCo runs the command that creates the object (semantic view, agent, evaluation) and confirms success.
+3. **Never advance past a failing gate.** If a build/create/eval command errors, stop, surface the error, fix it with the user, and re-run before moving on.
+4. **One question set at a time.** Keep each phase's questions focused; capture the answers before authoring files.
 
 ---
 
@@ -131,7 +143,43 @@ Test with three questions:
 
 ---
 
-## Phase 5 - Demo and Handoff
+## Phase 5 - Evaluate
+
+**Entry condition:** agent is deployed and validated against the three test questions.
+
+Manual spot-checks catch obvious misses but do not scale and are not repeatable across iterations. Snowflake's Cortex Agent Evaluations run the agent against a ground-truth question set and score the answers, giving you a real number instead of a feel.
+
+Copy `starter/eval_ground_truth_example.csv` and `starter/eval_config_example.yml` into the session, then:
+
+1. Replace the example rows in the ground truth CSV with 5-10 real questions and correct answers for this customer's data (include a couple of edge cases and out-of-scope questions, not just the easy ones)
+2. Load the CSV into a table the eval dataset will point at
+3. Update `eval_config_example.yml`: set `agent_name` to the deployed agent, `table_name` to the table from step 2, and remove the `dataset` block after the first successful run (re-running it errors on an existing dataset)
+
+Run:
+
+```sql
+-- Stage the config and start the evaluation (see macros/run_evaluation.sql
+-- in the reference dbt template for the full stage + file-format setup this
+-- wraps)
+CALL EXECUTE_AI_EVALUATION(
+  'START',
+  OBJECT_CONSTRUCT('run_name', '<customer>_baseline'),
+  '@<database>.<schema>.eval_config_stage/eval_config_example.yml'
+);
+```
+
+Confirm:
+- [ ] The evaluation run completes without error
+- [ ] `answer_correctness` and `logical_consistency` scores are reviewed for every question, not just the average
+- [ ] Any question scoring low is either fixed (add a verified query, tighten an `AI_SQL_GENERATION` instruction) and re-run, or explicitly called out as a known gap before the demo
+
+**Gate:** aim for high answer correctness across the ground-truth set before advancing. If a question consistently scores low, fix the semantic view or agent spec and re-run rather than demoing around it.
+
+**Exit artifact:** an evaluation run with reviewed scores for every ground-truth question.
+
+---
+
+## Phase 6 - Demo and Handoff
 
 **Entry condition:** agent is deployed and validated.
 

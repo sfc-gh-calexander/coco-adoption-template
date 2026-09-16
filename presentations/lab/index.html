@@ -40,14 +40,15 @@
 <main class="container">
   <section class="tab-panel is-active" data-tab="overview" data-tab-label="Overview">
   <h1>Hands-On Lab: Account-Specific CoCo Build</h1>
-  <p class="lead">Five phases from a blank slate to a deployed AI agent that answers a question using the customer's own Snowflake data. Follow the tabs in order.</p>
+  <p class="lead">Six phases from a blank slate to a deployed, evaluated AI agent that answers a question using the customer's own Snowflake data. Follow the tabs in order.</p>
 
   <div class="flow">
     <span class="step">1 &middot; Setup</span><span class="arrow">&rarr;</span>
     <span class="step">2 &middot; Semantic View</span><span class="arrow">&rarr;</span>
     <span class="step">3 &middot; Agent</span><span class="arrow">&rarr;</span>
-    <span class="step">4 &middot; Demo</span><span class="arrow">&rarr;</span>
-    <span class="step">5 &middot; Handoff</span>
+    <span class="step">4 &middot; Evaluate</span><span class="arrow">&rarr;</span>
+    <span class="step">5 &middot; Demo</span><span class="arrow">&rarr;</span>
+    <span class="step">6 &middot; Handoff</span>
   </div>
 
   <div class="note"><strong>The contract:</strong> each phase states its entry condition and its exit artifact. Confirm the gate at the end of a phase before advancing - never move on with a failing gate.</div>
@@ -224,11 +225,45 @@ AI_VERIFIED_QUERIES (
   </div>
 
   <p><strong>Exit artifact:</strong> deployed agent that answers the build brief question accurately in the customer's Snowflake environment.</p>
+  <p><button class="btn btn-primary" onclick="document.querySelector('[data-tab=evaluate]').click()">Next: Evaluate &rarr;</button></p>
+  </section>
+
+  <section class="tab-panel" data-tab="evaluate" data-tab-label="4 &middot; Evaluate">
+  <div class="eyebrow">Step 4 of 6</div>
+  <h1>Evaluate</h1>
+  <p class="lead">Score the agent against a ground-truth question set instead of eyeballing three test questions.</p>
+
+  <h2>Entry Condition</h2>
+  <p>Agent is deployed and validated against the three test questions from the Agent tab.</p>
+
+  <div class="note"><strong>Why this matters:</strong> manual spot-checks catch obvious misses but do not scale and are not repeatable across iterations. Snowflake's Cortex Agent Evaluations run the agent against a ground-truth set and score the answers, giving you a real number instead of a feel.</div>
+
+  <h2>Set up the evaluation</h2>
+  <ol>
+    <li>Copy <code>starter/eval_ground_truth_example.csv</code> and <code>starter/eval_config_example.yml</code> into the session</li>
+    <li>Replace the example rows in the ground truth CSV with 5-10 real questions and correct answers for this customer's data - include a couple of edge cases and out-of-scope questions, not just the easy ones</li>
+    <li>Load the CSV into a table the eval dataset will point at</li>
+    <li>Update <code>eval_config_example.yml</code>: set <code>agent_name</code> to the deployed agent, <code>table_name</code> to the table you just loaded, and remove the <code>dataset</code> block after the first successful run</li>
+  </ol>
+
+  <h2>Run the evaluation</h2>
+  <pre><code>CALL EXECUTE_AI_EVALUATION(
+  'START',
+  OBJECT_CONSTRUCT('run_name', '&lt;customer&gt;_baseline'),
+  '@&lt;database&gt;.&lt;schema&gt;.eval_config_stage/eval_config_example.yml'
+);</code></pre>
+
+  <div class="gate">
+    <span class="gate-label">Gate - do not advance until</span>
+    <p>The evaluation run completes without error, and <code>answer_correctness</code> / <code>logical_consistency</code> scores are reviewed for every question - not just the average. If a question consistently scores low, fix the semantic view or agent spec and re-run rather than demoing around it.</p>
+  </div>
+
+  <p><strong>Exit artifact:</strong> an evaluation run with reviewed scores for every ground-truth question.</p>
   <p><button class="btn btn-primary" onclick="document.querySelector('[data-tab=demo]').click()">Next: Demo &rarr;</button></p>
   </section>
 
-  <section class="tab-panel" data-tab="demo" data-tab-label="4 &middot; Demo">
-  <div class="eyebrow">Step 4 of 5</div>
+  <section class="tab-panel" data-tab="demo" data-tab-label="5 &middot; Demo">
+  <div class="eyebrow">Step 5 of 6</div>
   <h1>Demo</h1>
   <p class="lead">Running the session and handling objections.</p>
 
@@ -279,8 +314,8 @@ AI_VERIFIED_QUERIES (
   <p><button class="btn btn-primary" onclick="document.querySelector('[data-tab=handoff]').click()">Next: Handoff &rarr;</button></p>
   </section>
 
-  <section class="tab-panel" data-tab="handoff" data-tab-label="5 &middot; Handoff">
-  <div class="eyebrow">Step 5 of 5</div>
+  <section class="tab-panel" data-tab="handoff" data-tab-label="6 &middot; Handoff">
+  <div class="eyebrow">Step 6 of 6</div>
   <h1>Handoff</h1>
   <p class="lead">Complete before leaving the session.</p>
 

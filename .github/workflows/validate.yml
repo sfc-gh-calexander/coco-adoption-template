@@ -1,0 +1,60 @@
+name: Validate content and links
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: No em dashes (unicode)
+        run: |
+          if grep -rIl $'\xe2\x80\x94' --include="*.md" --include="*.html" . 2>/dev/null | grep -v '^\./\.git/'; then
+            echo "Em dash (unicode) found - replace with a plain hyphen."
+            exit 1
+          fi
+
+      - name: No em dashes (HTML entity)
+        run: |
+          if grep -rIl "&mdash;" --include="*.md" --include="*.html" . 2>/dev/null | grep -v '^\./\.git/'; then
+            echo "&mdash; entity found - replace with a plain hyphen."
+            exit 1
+          fi
+
+      - name: No emojis
+        run: |
+          if grep -rIlP '[\x{1F300}-\x{1FAFF}\x{2600}-\x{27BF}]' --include="*.md" --include="*.html" . 2>/dev/null | grep -v '^\./\.git/'; then
+            echo "Emoji found - this template does not use emojis."
+            exit 1
+          fi
+
+      - name: No "Cortex Code" mentions
+        run: |
+          if grep -rIln "Cortex Code" --include="*.md" --include="*.html" . 2>/dev/null | grep -v '^\./\.git/'; then
+            echo "'Cortex Code' found - the product name in this template is CoCo."
+            exit 1
+          fi
+
+      - name: Internal links resolve
+        run: |
+          missing=0
+          for f in $(find presentations -name "*.html"); do
+            dir=$(dirname "$f")
+            for href in $(grep -oE 'href="[^"#]+\.html"' "$f" | sed -E 's/href="([^"]+)"/\1/'); do
+              case "$href" in
+                http*) continue ;;
+              esac
+              target=$(cd "$dir" && realpath -m "$href" 2>/dev/null)
+              if [ ! -f "$target" ]; then
+                echo "Broken link in $f -> $href"
+                missing=1
+              fi
+            done
+          done
+          if [ "$missing" -eq 1 ]; then
+            exit 1
+          fi

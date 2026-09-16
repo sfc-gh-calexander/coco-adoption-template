@@ -21,7 +21,7 @@ This repo publishes to GitHub Pages from the `presentations/` folder. The site h
 - `/` - Landing page (two paths: Decision Maker and Builder)
 - `/the-case/` - Why account-specific CoCo builds drive adoption
 - `/executive/` - Business value deck (~10 slides, keyboard-navigable)
-- `/lab/` - Hands-on Lab (5-phase walkthrough)
+- `/lab/` - Hands-on Lab (6-phase walkthrough)
 - `/exhibit-a/` - CoCo capabilities reference
 - `/exhibit-b/` - Anonymized vertical patterns
 
