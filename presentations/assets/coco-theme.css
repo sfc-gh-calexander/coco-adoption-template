@@ -70,6 +70,8 @@
 .btn:hover { opacity: 0.88; }
 .btn-primary { background: var(--sf-blue); color: #fff; }
 .btn-outline { background: transparent; color: var(--sf-blue-deep); border: 1.5px solid var(--border-strong); }
+.ruling-cta .btn-primary { color: #fff; }
+.ruling-cta .btn-outline { color: #fff; border-color: rgba(255, 255, 255, 0.5); }
 
 /* --- eyebrow (doc-page context) --------------------------------------------
    deck.css defines its own viewport-scaled .eyebrow for slides; doc pages
