@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="snowflake-source" content="cortex-agent-authored" />
+<title>Why CoCo</title>
+<script type="application/json" id="snowflake-report-metadata">
+{
+  "generated": "2026-09-17",
+  "intent": "Why CoCo - public-facing benchmark deck on time and cost savings",
+  "sections": [
+    { "id": "benchmarks", "title": "Public benchmark results", "producerNotes": "Snowflake internal benchmarking, cleared for public use" },
+    { "id": "internal-testing", "title": "Internal workflow testing", "producerNotes": "Internal results only, disclaimed on-slide as not publicly validated" }
+  ]
+}
+</script>
+<link rel="stylesheet" href="../assets/base.css" />
+<link rel="stylesheet" href="../assets/deck.css" />
+<link rel="stylesheet" href="../assets/coco-theme.css" />
+</head>
+<body>
+
+<a class="deck-home" href="../index.html">&larr; CoCo Quickstart</a>
+<div class="progress" id="progress"></div>
+
+<div class="deck" id="deck">
+
+  <section class="slide hero active">
+    <div class="title-brand"><span>Snowflake</span><span class="divider">|</span><span>CoCo</span></div>
+    <h1>Why CoCo</h1>
+    <div class="title-sub">Public benchmark results and what they mean for your team</div>
+    <div class="title-foot"><span>Benchmark deck</span><span>Public data only, sourced from Snowflake's own testing</span></div>
+  </section>
+
+  <section class="slide hero">
+    <div class="eyebrow">The bottom line</div>
+    <h2>&ldquo;Govern AI at scale with Snowflake CoCo.&rdquo;</h2>
+    <p class="lead">CoCo is built to run inside your Snowflake account, not alongside it, so governance and cost control come standard rather than bolted on afterward.</p>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Public benchmark &middot; SQL fixing</div>
+    <h2>Higher success, lower cost, on SQL-fixing tasks</h2>
+    <div class="pcard-grid">
+      <div class="pcard"><div class="ind">CoCo</div><div class="out">86% Pass&sup3; success rate</div></div>
+      <div class="pcard"><div class="ind">Claude Code</div><div class="out">72% Pass&sup3; success rate</div></div>
+    </div>
+    <p class="kicker">Cost per trial: $0.446 &rarr; $0.298, a 33% reduction. &ldquo;CoCo on Sonnet 5 outperformed Claude Code on Opus 5 on SQL-fixing tasks, while cost per trial fell 33%.&rdquo;</p>
+    <p class="disclaimer">Pass&sup3; measures success across three repeated trials. Source: Snowflake internal benchmarking.</p>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Public benchmark &middot; broader workloads</div>
+    <h2>The advantage holds across broader Snowflake workloads</h2>
+    <div class="pcard-grid">
+      <div class="pcard"><div class="ind">CoCo</div><div class="out">60% Pass&sup3; success rate</div></div>
+      <div class="pcard"><div class="ind">Claude Code</div><div class="out">58% Pass&sup3; success rate</div></div>
+    </div>
+    <p class="kicker">Cost per trial: $0.821 &rarr; $0.451, a 45% reduction. &ldquo;CoCo on Sonnet 5 matched the reliability of Claude Code on Opus 5 on broader Snowflake workloads, at 45% lower cost per trial.&rdquo;</p>
+    <p class="disclaimer">Source: Snowflake internal benchmarking.</p>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Matched-model comparison</div>
+    <h2>Same underlying model, more reliable results</h2>
+    <p class="lead">Holding the model constant and swapping only the agent, CoCo improved repeatable task success over Claude Code:</p>
+    <div class="statrow">
+      <div class="bigstat">+10<span class="unit">pp</span></div>
+      <div class="statcopy"><h2 style="margin-top:0">on Opus 5</h2></div>
+    </div>
+    <div class="statrow">
+      <div class="bigstat">+12<span class="unit">pp</span></div>
+      <div class="statcopy"><h2 style="margin-top:0">on Sonnet 5</h2></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Context efficiency</div>
+    <h2>Less wasted context, per task</h2>
+    <div class="statrow">
+      <div class="bigstat">~79,000</div>
+      <div class="statcopy"><p class="lead">fewer idle schema and skill context tokens per task, in Snowflake's internal usage data.</p></div>
+    </div>
+    <p class="disclaimer">Results vary by setup. Source: Snowflake internal usage data.</p>
+  </section>
+
+  <section class="slide hero">
+    <div class="eyebrow">Built for governance</div>
+    <h2>Governance and cost control, by default</h2>
+    <div class="pcard-grid">
+      <div class="pcard"><div class="ind">Security</div><div class="out">&ldquo;Inference runs within the Snowflake security perimeter.&rdquo;</div></div>
+      <div class="pcard"><div class="ind">Context</div><div class="out">&ldquo;CoCo can read your schemas, tables, warehouse configuration, and query history from the first prompt.&rdquo;</div></div>
+      <div class="pcard"><div class="ind">Cost control</div><div class="out">Admins can set daily and monthly per-user AI credit limits across CoCo in Snowsight, the CLI, and Desktop.</div></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Internal workflow testing</div>
+    <h2>Fewer steps, less time, on real data-engineering tasks</h2>
+    <div class="pillars cols-3">
+      <div class="pillar"><div class="pnum">8 vs 20</div><h3>Agent steps</h3><p>CoCo vs Claude Code + MCP, on the same task</p></div>
+      <div class="pillar"><div class="pnum">~12,000</div><h3>Fewer tokens</h3><p>per task</p></div>
+      <div class="pillar"><div class="pnum">~30&ndash;90s</div><h3>Time saved</h3><p>per task, and about 60% fewer agent steps overall</p></div>
+    </div>
+    <p class="disclaimer">These are internal benchmark results, not publicly validated customer outcomes.</p>
+  </section>
+
+  <section class="slide hero">
+    <div class="eyebrow">In summary</div>
+    <h2>&ldquo;In Snowflake's benchmark, CoCo delivered comparable or better repeatable task success than Claude Code while reducing cost per completed trial by 33% to 45%. Internal workflow testing also showed fewer agent steps and meaningful time savings on Snowflake data-engineering tasks.&rdquo;</h2>
+  </section>
+
+  <section class="slide hero">
+    <h2>See it yourself</h2>
+    <p class="lead">The fastest way to know if this holds for your workloads is to run it.</p>
+    <div class="ruling-cta">
+      <a class="btn btn-primary" href="../desktop/index.html">Install Desktop</a>
+      &nbsp;
+      <a class="btn btn-outline" href="../cli/index.html" style="color:#fff;border-color:rgba(255,255,255,0.5)">Install the CLI</a>
+    </div>
+  </section>
+
+</div>
+
+<div class="counter" id="counter"></div>
+<div class="navbtns">
+  <button class="navbtn" id="prevBtn" aria-label="Previous slide">&larr;</button>
+  <button class="navbtn" id="nextBtn" aria-label="Next slide">&rarr;</button>
+</div>
+<div class="hint-help">Use arrow keys or click to navigate</div>
+
+<script src="../assets/deck.js"></script>
+</body>
+</html>

@@ -86,6 +86,11 @@
 .check-box { width: 18px; height: 18px; border: 1.5px solid var(--border-strong); border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
 .checklist .check-text { font-size: 0.9rem; color: var(--text-muted); }
 
+/* --- disclaimer: caveat text on a slide with unvalidated internal data ----- */
+
+.disclaimer { font-size: clamp(0.75rem, 1.6vh, 0.95rem); color: var(--text-muted); font-style: italic; margin-top: 2.5vh; border-top: 1px solid var(--border); padding-top: 1.2vh; max-width: 52ch; }
+.slide.hero .disclaimer { color: rgba(255, 255, 255, 0.65); border-top: 1px solid rgba(255, 255, 255, 0.2); }
+
 /* --- handoff card ------------------------------------------------------------ */
 
 .handoff-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; }
