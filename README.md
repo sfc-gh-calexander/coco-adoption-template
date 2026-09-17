@@ -2,7 +2,7 @@
 
 A guide to installing Snowflake CoCo and connecting it to your Snowflake account. That's the whole scope: get CoCo running, on whichever surface fits how you work, then you're on your own to build.
 
-Live site: https://sfc-gh-calexander.github.io/cortex-coco-adoption-template/
+Live site: https://sfc-gh-calexander.github.io/coco-adoption-template/
 
 ## What's here
 
