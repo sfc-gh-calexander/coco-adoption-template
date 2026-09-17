@@ -4,14 +4,14 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="snowflake-source" content="cortex-agent-authored" />
-<title>CoCo Adoption Template</title>
+<title>CoCo Quickstart</title>
 <script type="application/json" id="snowflake-report-metadata">
 {
-  "generated": "2026-09-14",
-  "intent": "CoCo Adoption Template - customer-facing landing page",
+  "generated": "2026-09-17",
+  "intent": "CoCo Quickstart - public-facing hub for installing and connecting CoCo",
   "sections": [
-    { "id": "formats", "title": "Two paths", "producerNotes": "Static content" },
-    { "id": "coverage", "title": "What both versions cover", "producerNotes": "Static content" }
+    { "id": "surfaces", "title": "Three ways to run CoCo", "producerNotes": "Static content" },
+    { "id": "prereqs", "title": "Before you start", "producerNotes": "Static content" }
   ]
 }
 </script>
@@ -23,83 +23,63 @@
   <div class="container">
     <div class="brand">
       <span class="brand-mark">&#10052;</span>
-      <span class="brand-text">Snowflake <span class="divider">|</span> CoCo Adoption Template</span>
+      <span class="brand-text">Snowflake <span class="divider">|</span> CoCo Quickstart</span>
     </div>
     <div class="meta">
-      <span><span class="meta-label">Includes</span>Business value deck and hands-on lab</span>
+      <span><span class="meta-label">Covers</span>Snowsight, Desktop, and CLI</span>
     </div>
   </div>
 </header>
 
 <main class="container">
-  <h1>CoCo Adoption Template</h1>
-  <p class="lead">Account-specific AI builds in 30 minutes. A business value deck for decision makers and a hands-on lab for builders, built from real-world production deployments.</p>
-  <p>
-    <span class="tag tag-oob">Customer-Specific Builds</span>
-    <span class="tag tag-oob">30-Minute Lab</span>
-    <span class="tag tag-oob">Vertical Patterns</span>
-    <span class="tag tag-oob">No Generic Demos</span>
-  </p>
+  <h1>Get CoCo running on your Snowflake account</h1>
+  <p class="lead">CoCo is Snowflake's AI coding agent. It reads your data, writes and runs code against it, and builds things - all inside your Snowflake governance boundary. This guide covers exactly one thing: getting CoCo installed and connected. What you build with it after that is up to you.</p>
 
-  <h2>The same material in two formats</h2>
-  <p>Whether you are making the case to a decision maker or building the demo yourself, there is a version designed for where you are.</p>
+  <h2>Three ways to run CoCo</h2>
+  <p>Pick whichever fits how you work. You are not locked into one - many people start in Snowsight and add Desktop or CLI later.</p>
 
   <div class="card-grid cols-2">
-    <a class="card is-link" href="executive/index.html">
-      <div class="card-eyebrow">For Decision Makers</div>
-      <div class="card-title">Business Value Deck</div>
-      <div class="card-desc">Nine slides on why account-specific builds outperform generic demos and four real-world patterns by industry. No implementation detail.</div>
-      <div class="card-meta"><span class="tag tag-oob">Slide deck</span><span>9 slides, about 11 minutes</span></div>
-      <div class="card-cta">Present <span class="arrow">&rarr;</span></div>
+    <a class="card is-link" href="desktop/index.html">
+      <div class="card-eyebrow">Native app</div>
+      <div class="card-title">CoCo Desktop</div>
+      <div class="card-desc">A native macOS/Windows IDE: file editor, integrated terminal, and the agent side by side. Best if you want a full development environment.</div>
+      <div class="card-meta"><span class="tag tag-oob">Now GA</span><span>Download and connect in a few minutes</span></div>
+      <div class="card-cta">Install Desktop <span class="arrow">&rarr;</span></div>
     </a>
-    <a class="card is-link" href="lab/index.html">
-      <div class="card-eyebrow">For Builders</div>
-      <div class="card-title">Hands-On Lab</div>
-      <div class="card-desc">A five-phase walkthrough from a blank slate to a deployed agent that answers a question using the customer's own Snowflake data. Includes a 30-minute setup checklist, objection handling, and an AE handoff card.</div>
-      <div class="card-meta"><span class="tag tag-new">Hands-on lab</span><span>6 phases, tabbed</span></div>
-      <div class="card-cta">Open the lab <span class="arrow">&rarr;</span></div>
+    <a class="card is-link" href="cli/index.html">
+      <div class="card-eyebrow">Terminal</div>
+      <div class="card-title">CoCo CLI</div>
+      <div class="card-desc">A terminal-native agent that connects your local dev environment to your data stack. Best if you already live in a terminal.</div>
+      <div class="card-meta"><span class="tag tag-oob">Now GA</span><span>One install script, then connect</span></div>
+      <div class="card-cta">Install the CLI <span class="arrow">&rarr;</span></div>
     </a>
   </div>
 
-  <h2>What both versions cover</h2>
-  <p>A generic demo does not drive adoption. A build tied to the customer's actual data does. This template removes the friction between "I have a meeting tomorrow" and "I have something worth showing."</p>
-
-  <div class="card-grid">
-    <div class="card">
-      <h2>01 &middot; Why It Matters</h2>
-      <p>Why account-specific builds outperform generic demos, and how to make the case to a skeptical stakeholder. <a class="inline" href="the-case/index.html">Read the case &rarr;</a></p>
-    </div>
-    <div class="card">
-      <h2>02 &middot; Account Discovery</h2>
-      <p>Three questions that map a customer conversation directly to a build pattern. Walk in prepared, not guessing.</p>
-    </div>
-    <div class="card">
-      <h2>03 &middot; 30-Minute Setup</h2>
-      <p>From cold start to demo-ready. Connect, identify tables, define one business question, build the agent, app, or pipeline that answers it.</p>
-    </div>
-    <div class="card">
-      <h2>04 &middot; Vertical Patterns</h2>
-      <p>Production patterns for Financial Services, Restaurant, Healthcare, and SaaS. Adapt, don't start from zero. <a class="inline" href="exhibit-b/index.html">See patterns &rarr;</a></p>
-    </div>
-    <div class="card">
-      <h2>05 &middot; Objection Handling</h2>
-      <p>The five objections every SE encounters, including "We already have Copilot" and "My data team won't trust it."</p>
-    </div>
-    <div class="card">
-      <h2>06 &middot; AE Handoff Card</h2>
-      <p>What the demo answered, three follow-up questions, and the expansion story. The AE runs the next session without the SE.</p>
-    </div>
+  <h2>Already have a Snowflake account? Start here instead</h2>
+  <div class="callout callout-key">
+    <h4>No install required</h4>
+    <p>CoCo is built into Snowsight. Sign in to Snowsight and click the blue star icon in the bottom-right corner to open the CoCo panel. That's it - you're using CoCo, immediately, with no download and no local setup. This is the fastest way to try it before installing Desktop or the CLI.</p>
   </div>
 
-  <h2>About this template</h2>
-  <p class="muted">Built from real-world production deployments. Part of Snowflake's SE adoption resource library. Dual-format structure: business case for decision makers, hands-on lab for builders.</p>
-  <p class="muted">The hands-on lab and vertical patterns are backed by actual account builds. Each pattern is anonymized - the patterns are real, the names are not.</p>
+  <h2>Before you start</h2>
+  <p>Whichever surface you pick, your Snowflake role needs one of these database roles:</p>
+  <table class="data-table">
+    <thead><tr><th>Role</th><th>What it's for</th><th>Granted by default?</th></tr></thead>
+    <tbody>
+      <tr><td><code>SNOWFLAKE.CORTEX_USER</code></td><td>Core CoCo access - chat, read schema and data, write and run code</td><td>Yes, via <code>PUBLIC</code> on most accounts</td></tr>
+      <tr><td><code>SNOWFLAKE.CORTEX_AGENT_USER</code></td><td>Building and running Cortex Agents specifically</td><td>No - an admin grants this explicitly</td></tr>
+    </tbody>
+  </table>
+  <p class="muted">Most users already have <code>SNOWFLAKE.CORTEX_USER</code> without any admin action. If CoCo says you don't have access, ask your Snowflake admin to check the grant.</p>
+
+  <h2>About this guide</h2>
+  <p class="muted">Sourced from Snowflake's own CoCo documentation and getting-started guides. If something here does not match what you see in the product, the docs are the source of truth: <a class="inline" href="https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code">docs.snowflake.com/en/user-guide/cortex-code</a>.</p>
 
 </main>
 
 <footer class="site-footer">
   <div class="container">
-    <p>CoCo Adoption Template &middot; <strong>Snowflake | CoCo Adoption</strong> &middot; <a href="the-case/index.html">Why CoCo</a> &middot; <a href="executive/index.html">Executive Deck</a> &middot; <a href="lab/index.html">Hands-On Lab</a> &middot; <a href="exhibit-b/index.html">Vertical Patterns</a></p>
+    <p>CoCo Quickstart &middot; <strong>Snowflake | CoCo</strong> &middot; <a href="desktop/index.html">Desktop</a> &middot; <a href="cli/index.html">CLI</a></p>
   </div>
 </footer>
 

@@ -1,57 +1,29 @@
-# CoCo Adoption Template
+# CoCo Quickstart
 
-A customer-facing resource for driving CoCo adoption: a business value deck, a hands-on lab, and a step-by-step runbook that any SE can pick up and run.
+A guide to installing Snowflake CoCo and connecting it to your Snowflake account. That's the whole scope: get CoCo running, on whichever surface fits how you work, then you're on your own to build.
 
-Part of Snowflake's SE adoption resource library.
+Live site: https://sfc-gh-calexander.github.io/cortex-coco-adoption-template/
 
----
+## What's here
 
-## What is in this repo
-
-| Path | What it is |
+| Path | Covers |
 |---|---|
-| `presentations/` | GitHub Pages site - landing page, executive deck, HoL, reference pages |
-| `WORKING-SESSION.md` | Step-by-step runbook to follow live in a Workspace or alongside a customer |
-| `starter/semantic_view_example.sql` | Semantic view skeleton to copy and adapt |
+| `/` | Hub - what CoCo is, three ways to run it, prerequisites |
+| `/desktop/` | CoCo Desktop - download, connect, first session, settings |
+| `/cli/` | CoCo CLI - install, connect, first query, next steps |
 
-## GitHub Pages
+There is no fourth surface page for the Snowsight-embedded panel - it's a single step (click the blue star icon in Snowsight) and is covered as a callout on the hub instead of its own page.
 
-This repo publishes to GitHub Pages from the `presentations/` folder. The site has four paths:
+## Local development
 
-- `/` - Landing page (two paths: Decision Maker and Builder)
-- `/the-case/` - Why account-specific CoCo builds drive adoption
-- `/executive/` - Business value deck (~10 slides, keyboard-navigable)
-- `/lab/` - Hands-on Lab (6-phase walkthrough)
-- `/exhibit-a/` - CoCo capabilities reference
-- `/exhibit-b/` - Anonymized vertical patterns
+The site is static HTML with a small shared asset layer (`presentations/assets/`: `base.css`, `doc.css`, `doc.js`, `coco-theme.css`). Open any `presentations/**/index.html` file directly in a browser - no build step.
 
-To publish: Settings > Pages > Source: Deploy from branch > Branch: `main` > Folder: `/presentations`.
+## Deployment
 
-## Using the runbook
+`.github/workflows/deploy.yml` publishes `presentations/` to GitHub Pages on every push to `main`. `.github/workflows/validate.yml` runs on pull requests and checks for em dashes, emojis, "Cortex Code" mentions (the product name is CoCo), and broken internal links.
 
-Open `WORKING-SESSION.md` in a Snowflake Workspace (or CoCo Desktop) alongside the customer environment. Follow the phases in order. Each phase has an entry condition and an exit artifact - do not advance past a failing gate.
+## Style rules
 
-## Using the starter semantic view
-
-Copy `starter/semantic_view_example.sql` and point it at the customer's tables:
-
-```sql
--- 1. Replace DATABASE.SCHEMA.YOUR_TABLE with actual table references
--- 2. Update DIMENSIONS to match actual column names
--- 3. Add METRICS for the business KPIs you want to expose
--- 4. Add one VERIFIED_QUERY for the most common question
--- 5. Run the file to create the semantic view
-```
-
-## Prerequisites
-
-To run the HoL with a customer:
-
-- Snowflake account with Cortex features enabled
-- CoCo enabled on the account
-- 1-2 source tables identified that answer a business question the customer cares about
-- One business question defined before the session starts
-
-## License
-
-Apache 2.0
+- No em dashes, no emojis, anywhere.
+- The product name is CoCo, not Cortex Code.
+- Every install command and connection detail should trace back to Snowflake's own docs (`docs.snowflake.com/en/user-guide/cortex-code/`) - if the product changes, update here to match, not the other way around.

@@ -1,6 +1,0 @@
-input_query,ground_truth_json
-"What was the total count of records last month?","{""ground_truth_output"": ""State the total count and the month it covers, pulled from the main_table metric.""}"
-"Which category had the most records this quarter?","{""ground_truth_output"": ""Name the single category with the highest count for the current quarter.""}"
-"How many records are currently in pending status?","{""ground_truth_output"": ""State the count of records where status is pending as of today.""}"
-"What is the average value by category for the last 90 days?","{""ground_truth_output"": ""Break down the average value per category, limited to the last 90 days.""}"
-"What was our count in a market we do not track?","{""ground_truth_output"": ""The agent should say it cannot answer this from the available data rather than guessing.""}"
