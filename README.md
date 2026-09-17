@@ -21,9 +21,3 @@ The site is static HTML with a small shared asset layer (`presentations/assets/`
 ## Deployment
 
 `.github/workflows/deploy.yml` publishes `presentations/` to GitHub Pages on every push to `main`. `.github/workflows/validate.yml` runs on pull requests and checks for em dashes, emojis, "Cortex Code" mentions (the product name is CoCo), and broken internal links.
-
-## Style rules
-
-- No em dashes, no emojis, anywhere.
-- The product name is CoCo, not Cortex Code.
-- Every install command and connection detail should trace back to Snowflake's own docs (`docs.snowflake.com/en/user-guide/cortex-code/`) - if the product changes, update here to match, not the other way around.
